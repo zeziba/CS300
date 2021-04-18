@@ -1,0 +1,2 @@
+class ProjectProjector < ApplicationRecord
+end

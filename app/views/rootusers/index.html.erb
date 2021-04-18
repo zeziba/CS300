@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rootusers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rootusers.each do |rootuser| %>
+      <tr>
+        <td><%= link_to 'Show', rootuser %></td>
+        <td><%= link_to 'Edit', edit_rootuser_path(rootuser) %></td>
+        <td><%= link_to 'Destroy', rootuser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rootuser', new_rootuser_path %>

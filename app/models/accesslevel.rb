@@ -1,0 +1,2 @@
+class Accesslevel < ApplicationRecord
+end
