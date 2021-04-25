@@ -25,7 +25,7 @@ class AccesslevelsController < ApplicationController
 
     respond_to do |format|
       if @accesslevel.save
-        format.html { redirect_to @accesslevel, notice: "Accesslevel was successfully created." }
+        format.html { redirect_to @accesslevel, notice: "Access level was successfully created." }
         format.json { render :show, status: :created, location: @accesslevel }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AccesslevelsController < ApplicationController
   def update
     respond_to do |format|
       if @accesslevel.update(accesslevel_params)
-        format.html { redirect_to @accesslevel, notice: "Accesslevel was successfully updated." }
+        format.html { redirect_to @accesslevel, notice: "Access level was successfully updated." }
         format.json { render :show, status: :ok, location: @accesslevel }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class AccesslevelsController < ApplicationController
   def destroy
     @accesslevel.destroy
     respond_to do |format|
-      format.html { redirect_to accesslevels_url, notice: "Accesslevel was successfully destroyed." }
+      format.html { redirect_to accesslevels_url, notice: "Access level was successfully destroyed." }
       format.json { head :no_content }
     end
   end
