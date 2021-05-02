@@ -13,7 +13,7 @@ script:
  
 deploy:
  provider: heroku
- api_key: SAXqskQ5GuvCqxIPtXpgvw
+ api_key: 09ff79be-a433-4034-afd8-125220944709
  app: fast-waters-11904
  run: "rake db:migrate"
  on:
