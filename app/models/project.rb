@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :user
+  validates :data, presence: true
 
   has_many :comments
 end

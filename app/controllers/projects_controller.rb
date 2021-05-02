@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  before_action :authenticate_project_user!
 
   # GET /projects or /projects.json
   def index
@@ -65,6 +64,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.fetch(:project, {})
+      params.require(:project).permit(:data, current_project_user)
     end
 end
