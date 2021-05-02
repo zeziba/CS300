@@ -1,3 +1,20 @@
 language: ruby
+cache: bundler
+bundler_args: --without production
+
 rvm:
  - 2.7.0
+ 
+before_install:
+ - gem install bundler:2.2.11
+
+script:
+ - bundle exec rspec
+ 
+deploy:
+ provider: heroku
+ api_key: YOUT_ACCOUNT_API_HERE
+ app: YOUR_APP_NAME_HERE
+ run: "rake db:migrate"
+ on:
+  all_branches: true
