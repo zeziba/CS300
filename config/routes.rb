@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root 'projects#index'
   
-  devise_for :project_users , :controllers => { registrations: 'registrations'} do
+  devise_for :project_users do
     get '/project_users/sign_out' => 'devise/sessions#destroy'
   end
   
