@@ -1,2 +1,0 @@
-class Rootuser < ApplicationRecord
-end
