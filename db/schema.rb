@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_031136) do
+ActiveRecord::Schema.define(version: 2021_05_08_200208) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "data"
-    t.integer "project_id"
+    t.string "name"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_comments_on_project_id"
+    t.integer "project_id"
   end
 
   create_table "project_users", force: :cascade do |t|
@@ -34,10 +34,9 @@ ActiveRecord::Schema.define(version: 2021_05_02_031136) do
 
   create_table "projects", force: :cascade do |t|
     t.text "data"
-    t.integer "user_id"
+    t.text "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

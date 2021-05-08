@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
   before_action :authenticate_project_user!, only: [:create, :update, :destroy]
+  before_action :is_authorised, only: [:update, :destroy]
 
   # GET /projects or /projects.json
   def index
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.user = current_project_user.email
 
     respond_to do |format|
       if @project.save
@@ -65,6 +67,11 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:data, current_project_user)
+      params.require(:project).permit(:data)
     end
+
+    def is_authorised
+      redirect_to root_path, alert: "You don't have permission to moify this asset." unless current_project_user.email == @project.user
+    end
+    
 end
