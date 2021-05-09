@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="1">Project Data Short</th>
+      <th colspan="1">User</th>
+      <th colspan="1"></th>
+      <% if project_user_signed_in? %>
+        <th colspan="2"></th>
+      <% end %>
+      <th colspan="1">Comments</th>
+      <th colspan="1">Project Link</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.data[0...20] %></td>
+        <td><%= remove_at(project.try(:user)) %>
+        <td><%= link_to 'Show', project %></td>
+        <% if allow_project_modify?(project) %>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td><%= project.comments.count %> comments</td>
+        <td>
+          <% if check_readme_str?(project.data) %>
+            <a href="<%= locate_readme(project.data) %>"><%= locate_readme(project.data)[0...20] %></a>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

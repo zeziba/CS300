@@ -39,6 +39,10 @@ gem 'mini_racer'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Add bootstrap to app
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+
 gem 'capybara', '>= 2.15'
 
 group :development, :test do
