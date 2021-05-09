@@ -11,5 +11,23 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ProjectsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "check readme strings" do
+    it "checks readme exists" do
+      expect(check_readme_str?('http://github.com/README.md')).to be true
+    end
+
+    it "check readme if does not exist" do
+      expect(check_readme_str?('jib')).to be false
+    end
+  end
+
+  describe "get username from string" do
+    it "should get user name" do
+      expect(remove_at('jib@mail.com')).to eq('jib')
+    end
+
+    it "should not get user name" do
+      expect(remove_at('@mail.com')).to eq('')
+    end
+  end
 end

@@ -3,29 +3,7 @@
 
 <h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Project Data Short</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.data[0...20] %></td>
-        <td><%= remove_at(project.try(:user)) %>
-        <td><%= link_to 'Show', project %></td>
-        <% if allow_project_modify?(project) %>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        <td><%= project.comments.count %> comments</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render '/projects/table' %>
 
 <br>
 

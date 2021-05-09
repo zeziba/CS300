@@ -9,9 +9,8 @@
           <div class="level-left">
             <p>
               <strong>Project: </strong>
-              <% if check_readme_str?(@project.data) %>
-                <a href="<%= locate_readme(@project.data) %>">Project Link</a>
-              <% end %>
+              <p class="strong">Data:</p>
+                <%= render '/projects/data' %>
               <p>
                 <%= @project.data %>
               </p>
@@ -31,10 +30,6 @@
           </div>
         </nav>
         <hr/>
-
-        <div class="data">
-            <%= @project.data %>
-        </div>
     </div>
 </section>
 
@@ -44,8 +39,12 @@
         <div class="comment-form">
             <hr />
             <h3 class="subtitle is-3">Leave a reply</h3>
-             <%= render partial: 'comments/form', locals: {project: @project} %>
+              <%= render partial: 'comments/form', locals: {project: @project} %>
         </div>
-        <%= render @project.comments %>
+        <ul class="list-group">
+          <% @project.comments.each do |comment| %>
+            <li class="list-group-item"><%= render comment %></li>
+          <% end %>
+        </ul>
     </div>
 </section>
