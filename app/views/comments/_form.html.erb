@@ -10,11 +10,16 @@
         </ul>
       </div>
     <% end %>
-  
-    <p>Name:
-    <%= form.text_field :name %>
-    Comment:
-    <%= form.text_field :comment %>
-    </p>
-    <%= form.submit :submit%>
-  <% end %>
+
+    <div class="row">
+      <div class="col">
+        <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+      </div>
+      <div class="col">
+        <%= form.text_field :comment, class: "form-control", placeholder: "Comment" %>
+      </div>
+      <div class="col">
+        <%= form.submit :submit%>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,43 @@
+<section class="section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-1"><strong>Project: </strong></div>
+    </div>
+    <div class="row">
+      <div class="col">Project Name:</div>
+      <div class="col"><%= @project.name %></div>
+    </div>
+    <div class="row">
+      <div class="col">Number of Views:</div>
+      <div class="col"><%= @project.clicks %></div>
+    </div>
+    <div class="row">
+      <div class="col">Last Viewed:</div>
+      <div class="col"><%= @project.last_viewed %></div>
+    </div>
+    <div class="row">
+      <div class="col">URL of Project:</div>
+      <div class="col"><%= @project.uri %></div>
+    </div>
+    <div class="row">
+      <div class="col">Image:</div>
+      <div class="col"><%= image_tag url_for(:controller => "projects", :action => "image", :id => @project.id) %></div>
+    </div>
+    <div class="row">
+      <div class="col">Data:</div>
+      <div class="col"><%= render '/projects/data' %></div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="level-right">
+    <p class="level-item">
+      <% if allow_project_modify?(@project) %>
+        <%= link_to "Edit", edit_project_path(@project), class:"button" %> |
+      <% end %>
+      <%= link_to 'Back', projects_path %>
+    </p> 
+  </div>
+</section>

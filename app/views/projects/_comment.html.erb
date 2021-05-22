@@ -1,0 +1,14 @@
+<section class="section comments">
+    <h2 class="subtitle is-5"><strong><%= @project.comments.count %></strong> Comments</h2>
+    <h3 class="subtitle is-3">Leave a reply</h3>
+    <%= render partial: 'comments/form', locals: {project: @project} %>
+    <div class="table">
+        <ul class="list-group">
+        <% @project.comments.each do |comment| %>
+            <% if comment.comment %>
+                <li class="list-group-item"><%= render comment %></li>
+            <% end %>
+        <% end %>
+        </ul>
+    </div>
+</section>
