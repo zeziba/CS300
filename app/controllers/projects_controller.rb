@@ -10,6 +10,15 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @project = Project.find(params[:id]) 
+    @project.last_viewed = Time.now unless current_project_user
+    @project.clicks += 1 unless current_project_user
+    @project.save
+  end
+
+  def image
+    @project = Project.find(params[:id]) 
+    send_data(@project.img, :type => 'image/png', :disposition => "inline")
   end
 
   # GET /projects/new
@@ -25,6 +34,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_project_user.email
+    @project.clicks = 0
+    @project.last_viewed = Time.now
 
     respond_to do |format|
       if @project.save
@@ -39,6 +50,9 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
+    @project.last_viewed = Time.now unless current_project_user
+    @project.clicks += 1 unless current_project_user
+
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: "Project was successfully updated." }
@@ -67,7 +81,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:data)
+      params.require(:project).permit(:name, :uri, :img, :data) if params[:project]
     end
 
     def is_authorised

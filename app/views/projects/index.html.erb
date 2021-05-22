@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
-<% content_for :page_title,  "Index" %>
+<% content_for :title,  "Projects" %>
 
-<h1>Projects</h1>
+<h1 class="title">Projects</h1>
 
-<%= render '/projects/table' %>
+<div class="container-fluid">
+    <%= render '/projects/table' %>
+</div>
 
 <br>
 
