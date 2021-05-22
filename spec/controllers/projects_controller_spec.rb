@@ -39,7 +39,7 @@ RSpec.describe ProjectsController, type: :controller do
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { data: "data" }
+    { name: "name", uri: "uri", clicks: 0 }
   }
 
   let(:invalid_attributes) {
