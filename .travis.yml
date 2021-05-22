@@ -1,20 +1,19 @@
 language: ruby
 cache: bundler
-bundler_args: --without production
-
+bundler_args: "--without production"
 rvm:
- - 2.7.0
- 
+- 2.7.0
 before_install:
- - gem install bundler:2.2.11
-
+- gem install bundler:2.2.11
 script:
- - bundle exec rspec
- 
+- bundle exec rspec
 deploy:
- provider: heroku
- api_key: 09ff79be-a433-4034-afd8-125220944709
- app: fast-waters-11904
- run: "rake db:migrate"
- on:
-  all_branches: true
+  provider: heroku
+  app: fast-waters-11904
+  api_key:
+    secure: HV4Kqlpyoc2TzDBE/SZs18MFuarOnBfh6j7nZttKU+BB4AR4Y2c578BcgOqvja3Zmvei3TqrNdoWWTm0iIuql6ghfXb0OoIVKrEXNzTfUdDNZqFn4RHDpAxuDqWJd5GWp+GXbu+Q6jxJLFhxstqC3X2/13avQjXvMHU4sfNVx9M0xP1Fzm9Syw955WwysgFUdGp+svxzFIMan8+mEewi2HGLIIwcqn6tNe7iPGwKDBQpkzn85qOiPLSGdCGnVPGJVlNjK7hKFc9rJhLX3oXDN2/GSGIFteNK34B2a8SN+rUL+P80g/KmLTCsr2YOKsupQzKLaD3321qDbHb6lFVW+yu0Ux4y3qYesf0qxADTv947jFeUd80lJQRj2vXhHTetM/TZM1ChXzm4VG54PYgJKtgUxfurmUDneFuo7/a/tcDIf6nQa+9KCLrSIxg9gbd9U9tsGQ7UUwsVXuc2m16tVv6fFmdEpKe4XHwkzuNWuh98EagVuo6Lsy7Kycyv9CCw2F40w7Rlk4JfQUVm9rx3GlpqMrGdWSWuyozGRl8qpbMOm0O6PynN09e0nM05PKobSaC1uyfUlKkT7LMvJvXulXo4mWmb7EWZ33EntDx1gnhQZRVgEfClQuMd1Ec4fPlnsSR8+IIaCqPIwVJqdFeQdSoFfgDWX3IWOngseq8mQA0=
+  run:
+  - rake db:migrate
+  - rake cleanup
+  on: main
+  
