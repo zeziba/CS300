@@ -85,7 +85,7 @@ class ProjectsController < ApplicationController
     end
 
     def is_authorised
-      redirect_to root_path, alert: "You don't have permission to moify this asset." unless current_project_user.email == @project.user
+      redirect_to root_path, alert: "You don't have permission to modify this asset." unless current_project_user.email == @project.user
     end
     
 end
