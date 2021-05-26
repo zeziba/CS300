@@ -17,4 +17,5 @@ deploy:
   - rake cleanup
   on:
     repo: zeziba/CS300
+    branch: main
   skip_cleanup: 'true'
