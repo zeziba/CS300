@@ -3,5 +3,14 @@
 
 <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+
+<section class="section">
+  <div class="level-right">
+    <span class="h4 border bg-transparent rounded-pill">
+        <% if allow_project_modify?(@project) %>
+          <%= link_to "Show", project_path(@project), class:"btn btn-success rounded-pill" %> |
+        <% end %>
+        <%= link_to 'Back', projects_path, class:"btn btn-info rounded-pill" %>
+    </span>
+  </div>
+</section>

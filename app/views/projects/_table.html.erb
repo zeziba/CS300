@@ -25,7 +25,7 @@
           <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         <td><%= project.comments.count %> comments</td>
-        <td><a href="<%= project.uri %>"><%= project.uri[0...20] %></a></td>
+        <td><%= link_to project.uri[0...20], project.uri, class: "btn btn-link" %>></a></td>
       </tr>
     <% end %>
   </tbody>
