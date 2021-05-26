@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-inverse bg-inverse fixed-top flex-row">
+  <%= link_to 'CS300 Project Projector', '/', :class => 'navbar-brand p-2 justify-content-start' %>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if project_user_signed_in? %>
+    <div class="navbar-brand p-2 justify-content-center">Logged in as <%= current_project_user.email %></div>
+  <% end %>
+  <div class="navbar-collapse justify-content-end p" id="navbarNavAltMarkup">
+    <% if project_user_signed_in? %>
+      <%= link_to 'Edit profile', edit_project_user_registration_path, :class => 'glyphicon glyphicon-user nav-linkp', :width => "30", :height => "24" %>
+      <%= link_to "Sign Out", destroy_project_user_session_path, :method => :delete, :class => 'glyphicon glyphicon-log-out nav-link', :width => "30", :height => "24"  %>
+    <% else %>
+      <%= link_to " Sign up", new_project_user_registration_path, :class => 'glyphicon glyphicon-user nav-link'  %>
+      <%= link_to " Login", new_project_user_session_path, :class => 'glyphicon glyphicon-log-in nav-link'  %>
+    <% end %>
+  </div>
+</nav>

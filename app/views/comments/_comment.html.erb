@@ -3,7 +3,11 @@
     <div class="media-content">
       <div class="content">
         <p>
-          <strong><%= comment.name %>:</strong>
+          <% if comment.name? %>
+            <strong><%= comment.name %>:</strong>
+          <% else %>
+            <strong>Anonymous:</strong>
+          <% end %>
           <%= comment.comment %>
         </p>
       </div>

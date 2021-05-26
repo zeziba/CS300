@@ -5,16 +5,16 @@
     <%= render '/layouts/general' %>
   </head>
 
-<%= render '/layouts/header' %>
+<%= render '/layouts/navbar' %>
 
 <div id="wrap">
   <div id="main" class="container clear-top body">  
     <body>
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <p class="alert alert-success" role="alert"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <p class="alert alert-danger" role="alert"><%= alert %></p>
       <% end %>
       <%= yield %>
     </body>
