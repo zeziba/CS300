@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/zeziba/CS300.svg?branch=main)](https://travis-ci.com/zeziba/CS300)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
