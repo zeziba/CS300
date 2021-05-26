@@ -10,16 +10,24 @@
         </ul>
       </div>
     <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <div class="form-floating mb-3">
+            <%= form.text_field :name, class: "form-control", id: "floatingInput", placeholder: "Name" %>
+            <label for="floatingInput">Name</label>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col">
-        <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
-      </div>
-      <div class="col">
-        <%= form.text_field :comment, class: "form-control", placeholder: "Comment" %>
-      </div>
-      <div class="col">
-        <%= form.submit :submit%>
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <%= form.text_field :comment, class: "form-control", id: "floatingInput", placeholder: "Comment" %>
+            <label for="floatingInput">Comment</label>
+          </div>
+        </div>
+        <div class="col-1">
+          <%= form.submit :submit%>
+        </div>
       </div>
     </div>
 <% end %>
