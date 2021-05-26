@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
   
   get 'projects/image/:id' => 'projects#image'
+
+  
 end
