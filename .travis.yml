@@ -9,8 +9,6 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key:
-    secure: lRes+4fJllR5XzihmLvnQizK3wZs+7m96q9YNZxTEr+RPJicNBHdCmc3KQou/OF/y5dU/7A0Lp34EZxert1FO2BHu5RmOXjMljobvD/1jKRps0JOzxlKVki7L2XNsR9crAqZOAxmVhO6Ko8Dp5kYoMJfEsRsI8bpWIyxiR62mQixKrFIzKTRiEMfQw9a4+2l4sMxqr/CSbPdeK2P9ZS738ucxnBzcPW+shJ60PwZnNeVi+Hfn/0mZqBrDnBPn2lthL25vxkJ9bLoI6luZFu7HZp6IOQ3bzvowlnCeJc8XP9LAGA00xJl4JVJwoJE79k+JDmJ7wcVtH9hqqt4GRfujBm/FVncRmMnlqfG6HZIwY8lBOH4j4jofjQ8CEt0Ua6yjbG4j9m/ykdeJzw+3VV9ColBiFxec5+guKbw902gnXPKezLuTuNDkBgOehjb00u/i70hjELwqvk3/k1g6VUjiP9IKI3OGbsfYA/IBdQHanHuwZRI+kcqLzDOhW0No+6MAknQmAlPGvMvRQpIFqTb+0hVZQ8y2lqP8LFrL4enveA15lptkQKTgOhYpSx4i2z9hOziMHsIA2lTY+n5nK8uwdRwFHDk5bzIwcFJEm1V0j//oLc27Ot8uiXy2w5aS4Qzvuyr4c0mH0iyOSmC/J6b6IbFxZIwlwD7J3Dvf8BkgYE=
   app: fast-waters-11904
   run:
   - rake db:migrate
@@ -19,3 +17,6 @@ deploy:
     repo: zeziba/CS300
     branch: main
   skip_cleanup: 'true'
+env:
+  global:
+    secure: i69XMRymMTXB1E3b5095PSJCLskWP6X7J5gOorz1aePtTeZ9AoXMMgd+icCHQM014TyGEELb7eHL1HOx9ofNKSyXUVb1vpCqGghqE2c35lyBPQeK/aDWUTxDOg/V4DI2lHrQ8HvNqGpgK+qNIEdiL7rgbWOlPfwHBV1UVYd00MO9/iHgYwrXKzCqyblpGCWfPdcUAIMbrKbzqmMCc1iKVKy4Xuo4lJcliEuj7MYLQHRjf3KgLrp0q/FV7eam4Vth2ZdH+bB9WkNJuUxkx0wBcXRsdWEOq36jYAZv49Rm1LNc7fjZieQz/e+/x06yiTqbZDPY7eq8JgdijjeUj3gMGrmZ6kpitXT3TIosGXWoOm3sV0uxMVdkNrO4rOTsiZ4rNDTrQyTVMkJRm02rBNnKyGjEac+3KDJkF9jQmZk6r8eid7BAt/7/576dqb61ouZdYkXsQ4Y3NSP6sgE5/efVFMGZMDCCGaMLOwM2s8usb2/sjzcjRdYAH3fq/KGUsRLhnJ+Ds1ti+d5bC/eB8ugDTCHnksHaR7HqADve1yQF8YmJxA+a6iBJCv/FoVCP/2xlpXwqjvirbS1uOYG9SwNWtzpMEIlEWU93MGzMLMvWYApV9bPwu0K49KId1AyxXKrLLl29PBbYX221K0kWZaNNPMwZYBhMsZct+rsVzFgGNhI=

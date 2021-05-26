@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all.with_attached_image
   end
 
   # GET /projects/1 or /projects/1.json
@@ -14,11 +14,6 @@ class ProjectsController < ApplicationController
     @project.last_viewed = Time.now unless current_project_user
     @project.clicks += 1 unless current_project_user
     @project.save
-  end
-
-  def image
-    @project = Project.find(params[:id]) 
-    send_data(@project.img, :type => 'image/png', :disposition => "inline")
   end
 
   # GET /projects/new
@@ -33,6 +28,7 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.image.attach(params[:project][:image])
     @project.user = current_project_user.email
     @project.clicks = 0
     @project.last_viewed = Time.now
@@ -81,7 +77,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :uri, :img, :data) if params[:project]
+      params.require(:project).permit(:name, :uri, :data, :image) if params[:project]
     end
 
     def is_authorised

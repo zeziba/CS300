@@ -21,7 +21,7 @@
     </div>
     <div class="row">
       <div class="col">Image:</div>
-      <div class="col"><%= image_tag url_for(:controller => "projects", :action => "image", :id => @project.id) %></div>
+        <div class="col"><%= image_tag @project.image, class: "img-thumbnail img-small"  if @project.image.attached? %></div>
     </div>
     <div class="row">
       <div class="col">Data:</div>
