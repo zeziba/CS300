@@ -1,3 +1,5 @@
+os: linux
+dist: xenial
 language: ruby
 cache: bundler
 bundler_args: "--without production"
@@ -9,6 +11,7 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
+  strategy: api
   app: fast-waters-11904
   run:
   - rake db:migrate
@@ -16,7 +19,5 @@ deploy:
   on:
     repo: zeziba/CS300
     branch: main
-  skip_cleanup: 'true'
-env:
-  global:
-    secure: i69XMRymMTXB1E3b5095PSJCLskWP6X7J5gOorz1aePtTeZ9AoXMMgd+icCHQM014TyGEELb7eHL1HOx9ofNKSyXUVb1vpCqGghqE2c35lyBPQeK/aDWUTxDOg/V4DI2lHrQ8HvNqGpgK+qNIEdiL7rgbWOlPfwHBV1UVYd00MO9/iHgYwrXKzCqyblpGCWfPdcUAIMbrKbzqmMCc1iKVKy4Xuo4lJcliEuj7MYLQHRjf3KgLrp0q/FV7eam4Vth2ZdH+bB9WkNJuUxkx0wBcXRsdWEOq36jYAZv49Rm1LNc7fjZieQz/e+/x06yiTqbZDPY7eq8JgdijjeUj3gMGrmZ6kpitXT3TIosGXWoOm3sV0uxMVdkNrO4rOTsiZ4rNDTrQyTVMkJRm02rBNnKyGjEac+3KDJkF9jQmZk6r8eid7BAt/7/576dqb61ouZdYkXsQ4Y3NSP6sgE5/efVFMGZMDCCGaMLOwM2s8usb2/sjzcjRdYAH3fq/KGUsRLhnJ+Ds1ti+d5bC/eB8ugDTCHnksHaR7HqADve1yQF8YmJxA+a6iBJCv/FoVCP/2xlpXwqjvirbS1uOYG9SwNWtzpMEIlEWU93MGzMLMvWYApV9bPwu0K49KId1AyxXKrLLl29PBbYX221K0kWZaNNPMwZYBhMsZct+rsVzFgGNhI=
+  api_key:
+    secure: EbeqyPH5FPIvL3ApHmPDkXOhgQksMVV2hQp6p8aC+GWDiUrSan7rfuBjFe/kuJVVnV9Rahy3/ux2EkK/2fUL2dn/8Nn+ZN2r1KbmxjWyx7+hoaxfSuaXAVDc2bT4dun24ERR+584tNiIPNJ/ZsMbDDvulxgbJ5pqud64UxcghiJoFYa2eVHNPctHcHInEuay7ELD+R8dD0Gmnl7XJ3rTIHgLqNc8fl4SbP83214xCQoVOKUGGeOaRT27ZsQcppnyBTzSoQ9KwdV3Yqdl4a+QrlA7YjVu4LmCjOJOBhKmUeYGOuZO6p8bUFYj++1BdWkV2fjnCUF5pkczhOObb3h8VL5WCJD/IehdEDka7MwlopiHtKaVjp8iB9W87vCXxxZJMXgfTHVVs1mewoJZxpZwbJQCBObAb6KMLiTmsebDlZKQNRwwSOKoNIRvQC927u/XeQ/ane1IyA7Rim3Pk8juEPJ61jkq07LX5XN9usElK5YtUb7v4OtSHXkHOx+3LqkBWfooEr7b20P0haC2fhW7AfitSYPii2YaJunih19qvucTV+tqPJpHaNCJfh31Nl+Q/SKTg0lxgkKwIMNZxiYXFB9YL6G+nACJvysfGl8nZoowC8wfmLhHHKyOoLLUlW4XytPy4NnaVKqN9lv1pmx+CPwcLrupPv7L7JFd3azbUWo=
