@@ -23,6 +23,8 @@
         <% if allow_project_modify?(project) %>
           <td><%= link_to 'Edit', edit_project_path(project) %></td>
           <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% elsif project_user_signed_in? %>
+          <th colspan="2" scope="col"></th>
         <% end %>
         <td><%= project.comments.count %> comments</td>
         <td><%= link_to project.uri[0...20], project.uri, class: "btn btn-link" %>></a></td>
